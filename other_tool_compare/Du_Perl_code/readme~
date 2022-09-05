@@ -1,0 +1,13 @@
+此文件夹是加上09年之后的HI数据和之前的数据，建立模型时，过滤了变异病毒中aa差异数小于3，与相似病毒中aa差异数大于10的数据
+得到的模型在5折交叉验证中的效果为
+5-fold-CV accuracy,sensitivity,specificity : 0.762	0.757	0.769
+
+
+
+5-fold-CV accuracy,sensitivity,specificity : 0.741092636579572 0.743362831858407 0.738461538461539
+5-fold-CV accuracy,sensitivity,specificity : 0.752969121140142 0.769911504424779 0.733333333333333
+5-fold-CV accuracy,sensitivity,specificity : 0.750593824228028 0.756637168141593 0.743589743589744
+5-fold-CV accuracy,sensitivity,specificity : 0.748218527315915 0.761061946902655 0.733333333333333
+5-fold-CV accuracy,sensitivity,specificity : 0.762470308788599 0.747787610619469 0.779487179487179
+5-fold-CV accuracy,sensitivity,specificity : 0.755344418052256 0.725663716814159 0.78974358974359
+
