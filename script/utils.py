@@ -1,15 +1,11 @@
 import math
 import numpy as np
 import tensorflow as tf
-# H3N2_path = "E:\\联想软件\\SCU\\0-CNN-Finall\\1-Data\\csv\\No_smith_conflict\\No_smith_double_half_index\\{}.npy"
-# H3N2_path = "E:\\联想软件\\SCU\\0-CNN-Finall\\1-Data\\npy\\No_smith\\data_double\\{}.npy"
-# H3N2_path = "E:\\联想软件\\SCU\\0-CNN-Finall\\1-Data\\npy\\CNN_nodup_double\\{}.npy"
-# H3N2_path = "E:\\联想软件\\SCU\\0-CNN-Finall\\1-Data\\npy\\add_smith_no_conflit_double\\{}.npy"
-#H3N2_path = "E:\\联想软件\\SCU\\0-CNN-Finall\\1-Data\\npy\\CNN_nodup_double\\{}.npy"
-H3N2_path = "E:\\联想软件\\SCU\\0-CNN-Finall\\1-Data\\del_test\\npy_del_single\\{}.npy"
 
-H3N2_5folds_path_single = "E:\\联想软件\\SCU\\0-CNN-Finall\\1-Data\\All_data(add_smith_no_seq_dup_del_some)\\npy\\5folds\\{}.npy"
-H3N2_5folds_path_double = "E:\\联想软件\\SCU\\0-CNN-Finall\\1-Data\\All_data(add_smith_no_seq_dup_del_some)\\npy\\5folds_double\\{}.npy"
+H3N2_path = ".\\npy_del_single\\{}.npy"
+
+H3N2_5folds_path_single = ".\\npy\\5folds\\{}.npy"
+H3N2_5folds_path_double = ".\\npy\\5folds_double\\{}.npy"
 
 def data_load_5folds_double(index):
     years_data = []  #index = [0,1,2,3,4]
