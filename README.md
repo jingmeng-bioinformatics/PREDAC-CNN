@@ -1,38 +1,38 @@
 # CNNantigentic
 
-Prerequisites
-----------
-TensorFlow 2.7.0 <br>
-sklearn 0.19.2 <br>
-pandas 1.3.5 <br>
-numpy 1.21.6 <br>
-keras 2.7.0 <br>
+CNNantigentic is based on the CNN to predict the antigenic relationship of influenza A/H3N2 virus. CNNantigenic constructs a spatially oriented representation of the HA1 sequence adapted for the convolutional architecture, which can explore the interactions of the amino acids in the context sequence. Moreover, rather than the redundant amino acid embeddings, CNNantigenic takes into account only physicochemical features determining antigenicity of influenza A/H3N2 virus.Together, CNNantigenic can effectively extract the features in the context sequence from local to global views, and investigate the combinatorial contributions of point mutations in the HA protein to the antigenicity.
 
+## Prerequisites
 
-Getting started
-----------
-<br>
-1. Run input_matrix_generation by CNNantigentic:<br><br>
+TensorFlow 2.7.0 
+sklearn 0.19.2 
+pandas 1.3.5 
+numpy 1.21.6 
+keras 2.7.0 
 
-`samtools mpileup -B -d 100 -f /path/to/ref.fasta [-l] [-r] -q 10 -O -s -a /path/to/tumor.bam /path/to/normal.bam | bgzip > /path/to/mixed_pileup_file`<br><br>Note: For the case of applying TransSSVs on a part of the whole genome, increase the BED entry by n (the number of flanking genomic sites to the left or right of the candidate somatic site) base pairs in each direction, and specify the genomic region via the option -l or -r. <br><br>
-2. Run identi_candi_sites.py to identify candidate somatic small variants from the mixed pileup file: <br><br>` python3 identi_candi_sites.py
- --Tumor_Normal_mpileup /path/to/mixed_pileup_file
- --Candidate_somatic_sites /path/to/candidate_sites`<br><br>
-3. Run mapping_infor_candi_sites.py to create a file with mapping information for candidate somatic small variant sites as input for trained TransSSVs, or to create a file with mapping information for validated somatic sites for training TransSSVs:<br><br> `python3 mapping_infor_candi_sites.py --Tumor_Normal_mpileup /path/to/mixed_pileup_file --Candidate_validated_somatic_sites /path/to/candidate_sites --number_of_columns N --length L --path /path/to/save --filename_1 filename_1 `<br><br>
-4. Run model_train.py to train TransSSVs:<br><br>`CUDA_VISIBLE_DEVICES='' python3 model_train.py --input_dir /path/to/input --filename filename --vaild_dir /path/to/vaild_dir`<br><br>
-5. Run model_infer.py to predict somatic small variants:<br><br>`CUDA_VISIBLE_DEVICES='' python3 model_infer.py --weights /path/to/weights --input_dir /path/to/input --filename filename --save_dir /results/TransSSVs`<br><br>`python3 write_vcf.py --vcf_file /path/to/vcf_file --pred_class /results/TransSSVs/y_pred_all.txt --Candidate_somatic_sites /path/to/candidate_sites`<br><br>
+## Preview
 
+├─model
+└─script
+    └─input_matrix_generation
 
-Example of the Validated_labels file for validated sites with labels (1: somatic site, 0: non-somatic site):<br><br>
-        `chr1    790265  0`<br>
-        `chr1    1595272 1`<br>
-        `chr1    2312314 1`<br>
-        `chr1    5006153 0`<br>
+The code of the overall CNNantigenic project includes two parts, in which the **model** stores the prediction model saved from 2006 to 2020 (for example, 2020.h5 represents the model of CNNantigenic that predicts the antigen relationship in 2020 year), and **script** stores the specific script, where **input_ matrix_ generation** is used to convert H3N2 correlation data into the input matrix of the model.
 
+## Usage
 
-Please help us improve TransSSVs by reporting bugs or ideas on how to make things better. You can submit an issue or send me an email.<br>
+There are three steps to predict antigen relationship
 
-Jing Meng, Jiangyuan Wang<br>
+1. In the folder **input_ matrix_ generation**. Using files <u>csv_to_5fold.py</u> and <u>csv_to_years.py</u>, the total data can be divided into the separate data required for the 5-cross validation and retrospective testing.And then, we can use files <u>matrix_generation_single.py</u> and <u>matrix_generation_double.py</u> to convert separate data to input_matrix. The difference between <u>matrix_generation_single.py</u> and <u>matrix_generation_double.py</u>  in whether data amplification is performed. Finally, we will get the input matrix of numpy type
+2. In the folder **script**. The file of <u>main.py</u> used to define model, training model and test model. When we have prepared the data in step 1, we can use *run_years(years1, years2)* and *run_5folds()* to train the 5-cross validation and retrospective testing respectively. The model will be saved for subsequent testing. We can also *run_ test_Years (years)* to predict the antigen of the year's H3N2 virus by the year's model
+3. The file of <u>ROC.py</u> is used to test the specific performance of the saved model, including ROC curve and other indicators
+
+## Exmple
+
+1. Use <u>csv_to_years.py</u> we can convert  <u>exmple_all_data.csv</u> to  <u>exmple_2020_Relation.csv</u>
+2. Use <u>matrix_generation_double.py</u> we can convert <u>exmple_2020_Relation.csv</u> to <u>exmple_2020_double.npy</u>
+3. Use the function *run_ test_Years (years)* in the file of <u>main.py</u> we can get the prediction about 2020 year
+4. Draw ROC curve by ROC.py
+
+Jing Meng<br>
 
 jing.mengrabbit@outlook.com<br>
-wjy_bazi@hotmail.com<br>

@@ -133,6 +133,7 @@ def run_test():
     f.close()
     for i in range(2001, 2021):
         run_test_years(years=i)
+        
 #run_test()
 cnn = CNN()
 print(cnn.summary())
