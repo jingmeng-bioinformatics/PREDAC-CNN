@@ -26,7 +26,7 @@ There are three steps to predict antigen relationship
 2. In the folder **script**. The file of <u>main.py</u> used to define model, training model and test model. When we have prepared the data in step 1, we can use *run_years(years1, years2)* and *run_5folds()* to train the 5-cross validation and retrospective testing respectively. The model will be saved for subsequent testing. We can also *run_ test_Years (years)* to predict the antigen of the year's H3N2 virus by the year's model
 3. The file of <u>ROC.py</u> is used to test the specific performance of the saved model, including ROC curve and other indicators
 
-## Exmple
+## Example
 
 1. Use <u>csv_to_years.py</u> we can convert  <u>exmple_all_data.csv</u> to  <u>exmple_2020_Relation.csv</u>
 2. Use <u>matrix_generation_double.py</u> we can convert <u>exmple_2020_Relation.csv</u> to <u>exmple_2020_double.npy</u>
