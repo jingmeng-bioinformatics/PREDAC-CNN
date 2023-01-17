@@ -13,7 +13,7 @@ pandas==1.3.5
 1 Please prepare the input file. It is required that input file has to contain 'seq1','seq2' and 'label' for training data and testing data or 'seq1'and 'seq2' for predict.
 Example of the training data and testing data
 
-label	seq_1	seq_2
+label	seq_1	seq_2<>
 1	QKLPGNDNST...	QKLPGNDNSS...
 0	-KLPGNDNS...	-KLPGNDNT...
 1	QKLPGIDNSN...	QKLPGIDNSS...
@@ -40,9 +40,13 @@ python matrix_generate.py
 3 Run train.py to train a CNN model:
 
 python train.py
+
 --train_data 
+
 --test_data 
+
 --outdir 
+
 --type H1N1/H3N2
 
 4 Run predict.py to predict the relationship between the two sequence 
