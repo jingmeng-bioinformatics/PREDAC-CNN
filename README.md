@@ -12,7 +12,7 @@ CNNantigentic is based on the CNN to predict the antigenic relationship of influ
 ## Getting started
 1 Please prepare the input file. It is required that input file has to at least contain 'seq1','seq2' and 'label' for training data and testing data or 'seq1'and 'seq2' for predict.<br>
 
-Example of the training data and testing data
+Example of the training data and testing data:
 
     label    seq_1            seq_2
     1        QKLPGNDNST...    QKLPGNDNSS...
@@ -20,7 +20,7 @@ Example of the training data and testing data
     1        QKLPGIDNSN...    QKLPGIDNSS...
     0        QKLPGNDNTS...    QKLPGNDNSS...
 
-Example of the predict data
+Example of the predict data:
 
     seq_1	        seq_2
     QKLPGNDNST...	QKLPGNDNSS...
@@ -46,7 +46,7 @@ Example of the predict data
     --outdir /path/model_dir/
     --type H1N1 (or H3N2)
 
-4 Run predict.py to predict the relationship between the two sequence 
+4 Run predict.py to predict the relationship between the two sequence:
 
     python predict.py
     --predict_data /path/save_dir/predict_data
@@ -55,7 +55,7 @@ Example of the predict data
     --outdir /path/predict_dir/
     --type H1N1 (or H3N2)
 
-Example of the predicted file
+Example of the predicted file:
 
     seq_1	        seq_2	        predict
     QKLPGNDNST...	QKLPGNDNSS...	0
