@@ -4,63 +4,63 @@ CNNantigentic is based on the CNN to predict the antigenic relationship of influ
 
 ## Prerequisites
 
-tensorflow==2.4.0
-python==3.7
-pandas==1.3.5
+tensorflow==2.4.0<br>
+python==3.7<br>
+pandas==1.3.5<br>
 
 
 ## Getting started
-1 Please prepare the input file. It is required that input file has to contain 'seq1','seq2' and 'label' for training data and testing data or 'seq1'and 'seq2' for predict.
+1 Please prepare the input file. It is required that input file has to at least contain 'seq1','seq2' and 'label' for training data and testing data or 'seq1'and 'seq2' for predict.<br>
 Example of the training data and testing data
 
-label	seq_1	seq_2<>
-1	QKLPGNDNST...	QKLPGNDNSS...
-0	-KLPGNDNS...	-KLPGNDNT...
-1	QKLPGIDNSN...	QKLPGIDNSS...
-0	QKLPGNDNTS...	QKLPGNDNSS...
+label	seq_1	seq_2<br>
+1	QKLPGNDNST...	QKLPGNDNSS...<br>
+0	-KLPGNDNS...	-KLPGNDNT...<br>
+1	QKLPGIDNSN...	QKLPGIDNSS...<br>
+0	QKLPGNDNTS...	QKLPGNDNSS...<br>
 
 Example of the predict data
 
-seq_1	seq_2
-QKLPGNDNST...	QKLPGNDNSS...
--KLPGNDNS...	-KLPGNDNT...
-QKLPGIDNSN...	QKLPGIDNSS...
-QKLPGNDNTS...	QKLPGNDNSS...
+seq_1	seq_2<br>
+QKLPGNDNST...	QKLPGNDNSS...<br>
+-KLPGNDNS...	-KLPGNDNT...<br>
+QKLPGIDNSN...	QKLPGIDNSS...<br>
+QKLPGNDNTS...	QKLPGNDNSS...<br>
 
 
-2 Run matrix_generate.py to generate the input matrix from the input file:
+2 Run matrix_generate.py to generate the input matrix from the input file(train_data,test_data or predict_data):
 
-python matrix_generate.py 
---aaindex_file aaindex_feature_H1N1/aaindex_feature_H3N2
---seq_file 
---type training/testing/predict
---dir save_dir
+python matrix_generate.py <br>
+--aaindex_file aaindex_feature_H1N1 (or aaindex_feature_H3N2)<br>
+--seq_file /path/input_file<br>
+--type training (or testing or predict)<br>
+--dir /path/save_dir<br>
 
 
 3 Run train.py to train a CNN model:
 
 python train.py<br>
---train_data <br>
---test_data <br>
---outdir <br>
---type H1N1/H3N2
+--train_data /path/save_dir/train_data<br>
+--test_data /path/save_dir/test_data<br>
+--outdir /path/model_dir<br>
+--type H1N1 (or H3N2)<br>
 
 4 Run predict.py to predict the relationship between the two sequence 
 
-python predict.py
---test_data 
---seq_file 
---model_path 
---outdir 
---type H1N1/H3N2
+python predict.py<br>
+--predict_data /path/save_dir/predict_data<br>
+--seq_file /path/input_file<br>
+--model_path /path/model_dir/model<br>
+--outdir /path/predict_dir/<br>
+--type H1N1 (or H3N2)<br>
 
 Example of the predicted file
 
-seq_1	seq_2	predict
-QKLPGNDNST...	QKLPGNDNSS...	0
--KLPGNDNS...	-KLPGNDNT...	1
-QKLPGIDNSN...	QKLPGIDNSS...	0
-QKLPGNDNTS...	QKLPGNDNSS...	1
+seq_1	seq_2	predict<br>
+QKLPGNDNST...	QKLPGNDNSS...	0<br>
+-KLPGNDNS...	-KLPGNDNT...	1<br>
+QKLPGIDNSN...	QKLPGIDNSS...	0<br>
+QKLPGNDNTS...	QKLPGNDNSS...	1<br>
 
 
 
