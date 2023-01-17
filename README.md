@@ -39,14 +39,10 @@ python matrix_generate.py
 
 3 Run train.py to train a CNN model:
 
-python train.py
-
---train_data 
-
---test_data 
-
---outdir 
-
+python train.py<br>
+--train_data <br>
+--test_data <br>
+--outdir <br>
 --type H1N1/H3N2
 
 4 Run predict.py to predict the relationship between the two sequence 
