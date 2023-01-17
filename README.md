@@ -4,34 +4,65 @@ CNNantigentic is based on the CNN to predict the antigenic relationship of influ
 
 ## Prerequisites
 
-TensorFlow 2.7.0 
-sklearn 0.19.2 
-pandas 1.3.5 
-numpy 1.21.6 
-keras 2.7.0 
+tensorflow==2.4.0
+python==3.7
+pandas==1.3.5
 
-## Preview
 
-├─model
-└─script
-    └─input_matrix_generation
+## Getting started
+1 Please prepare the input file. It is required that input file has to contain 'seq1','seq2' and 'label' for training data and testing data or 'seq1'and 'seq2' for predict.
+Example of the training data and testing data
 
-The code of the overall CNNantigenic project includes two parts, in which the **model** stores the prediction model saved from 2006 to 2020 (for example, 2020.h5 represents the model of CNNantigenic that predicts the antigen relationship in 2020 year), and **script** stores the specific script, where **input_ matrix_ generation** is used to convert H3N2 correlation data into the input matrix of the model.
+label	seq_1	seq_2
+1	QKLPGNDNST...	QKLPGNDNSS...
+0	-KLPGNDNS...	-KLPGNDNT...
+1	QKLPGIDNSN...	QKLPGIDNSS...
+0	QKLPGNDNTS...	QKLPGNDNSS...
 
-## Usage
+Example of the predict data
 
-There are three steps to predict antigen relationship
+seq_1	seq_2
+QKLPGNDNST...	QKLPGNDNSS...
+-KLPGNDNS...	-KLPGNDNT...
+QKLPGIDNSN...	QKLPGIDNSS...
+QKLPGNDNTS...	QKLPGNDNSS...
 
-1. In the folder **input_ matrix_ generation**. Using files <u>csv_to_5fold.py</u> and <u>csv_to_years.py</u>, the total data can be divided into the separate data required for the 5-cross validation and retrospective testing.And then, we can use files <u>matrix_generation_single.py</u> and <u>matrix_generation_double.py</u> to convert separate data to input_matrix. The difference between <u>matrix_generation_single.py</u> and <u>matrix_generation_double.py</u>  in whether data amplification is performed. Finally, we will get the input matrix of numpy type
-2. In the folder **script**. The file of <u>main.py</u> used to define model, training model and test model. When we have prepared the data in step 1, we can use *run_years(years1, years2)* and *run_5folds()* to train the 5-cross validation and retrospective testing respectively. The model will be saved for subsequent testing. We can also *run_ test_Years (years)* to predict the antigen of the year's H3N2 virus by the year's model
-3. The file of <u>ROC.py</u> is used to test the specific performance of the saved model, including ROC curve and other indicators
 
-## Example
+2 Run matrix_generate.py to generate the input matrix from the input file:
 
-1. Use <u>csv_to_years.py</u> we can convert  <u>exmple_all_data.csv</u> to  <u>exmple_2020_Relation.csv</u>
-2. Use <u>matrix_generation_double.py</u> we can convert <u>exmple_2020_Relation.csv</u> to <u>exmple_2020_double.npy</u>
-3. Use the function *run_ test_Years (years)* in the file of <u>main.py</u> we can get the prediction about 2020 year
-4. Draw ROC curve by ROC.py
+python matrix_generate.py 
+--aaindex_file aaindex_feature_H1N1/aaindex_feature_H3N2
+--seq_file 
+--type training/testing/predict
+--dir save_dir
+
+
+3 Run train.py to train a CNN model:
+
+python train.py
+--train_data 
+--test_data 
+--outdir 
+--type H1N1/H3N2
+
+4 Run predict.py to predict the relationship between the two sequence 
+
+python predict.py
+--test_data 
+--seq_file 
+--model_path 
+--outdir 
+--type H1N1/H3N2
+
+Example of the predicted file
+
+seq_1	seq_2	predict
+QKLPGNDNST...	QKLPGNDNSS...	0
+-KLPGNDNS...	-KLPGNDNT...	1
+QKLPGIDNSN...	QKLPGIDNSS...	0
+QKLPGNDNTS...	QKLPGNDNSS...	1
+
+
 
 Jing Meng<br>
 
