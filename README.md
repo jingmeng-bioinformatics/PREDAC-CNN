@@ -4,9 +4,9 @@ CNNantigentic is based on the CNN to predict the antigenic relationship of influ
 
 ## Prerequisites
 
-    tensorflow==2.4.0<br>
-    python==3.7<br>
-    pandas==1.3.5<br>
+    tensorflow==2.4.0
+    python==3.7
+    pandas==1.3.5
 
 
 ## Getting started
@@ -30,29 +30,29 @@ Example of the predict data
 
 2 Run matrix_generate.py to generate the input matrix from the input file(train_data,test_data or predict_data):
 
-python matrix_generate.py <br>
---aaindex_file aaindex_feature_H1N1 (or aaindex_feature_H3N2)<br>
---seq_file /path/input_file<br>
---type training (or testing or predict)<br>
---dir /path/save_dir<br>
+    python matrix_generate.py
+    --aaindex_file aaindex_feature_H1N1 (or aaindex_feature_H3N2)
+    --seq_file /path/input_file
+    --type training (or testing or predict)
+    --dir /path/save_dir/
 
 
 3 Run train.py to train a CNN model:
 
-python train.py<br>
---train_data /path/save_dir/train_data<br>
---test_data /path/save_dir/test_data<br>
---outdir /path/model_dir<br>
---type H1N1 (or H3N2)<br>
+    python train.py
+    --train_data /path/save_dir/train_data
+    --test_data /path/save_dir/test_data
+    --outdir /path/model_dir/
+    --type H1N1 (or H3N2)
 
 4 Run predict.py to predict the relationship between the two sequence 
 
-python predict.py<br>
---predict_data /path/save_dir/predict_data<br>
---seq_file /path/input_file<br>
---model_path /path/model_dir/model<br>
---outdir /path/predict_dir/<br>
---type H1N1 (or H3N2)<br>
+    python predict.py
+    --predict_data /path/save_dir/predict_data
+    --seq_file /path/input_file
+    --model_path /path/model_dir/model
+    --outdir /path/predict_dir/
+    --type H1N1 (or H3N2)
 
 Example of the predicted file
 
