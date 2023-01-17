@@ -11,7 +11,7 @@ CNNantigentic is based on the CNN to predict the antigenic relationship of influ
 
 ## Getting started
 1 Please prepare the input file. It is required that input file has to at least contain 'seq1','seq2' and 'label' for training data and testing data or 'seq1'and 'seq2' for predict.<br>
-    Example of the training data and testing data
+Example of the training data and testing data
 
     label    seq_1            seq_2
     1        QKLPGNDNST...    QKLPGNDNSS...
