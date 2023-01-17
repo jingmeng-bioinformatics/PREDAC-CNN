@@ -4,9 +4,9 @@ CNNantigentic is based on the CNN to predict the antigenic relationship of influ
 
 ## Prerequisites
 
-tensorflow==2.4.0<br>
-python==3.7<br>
-pandas==1.3.5<br>
+    tensorflow==2.4.0<br>
+    python==3.7<br>
+    pandas==1.3.5<br>
 
 
 ## Getting started
