@@ -32,7 +32,7 @@ Example of the predict data:
 2 Run matrix_generate.py to generate the input matrix from the input file(train_data,test_data or predict_data):
 
     python matrix_generate.py
-    --aaindex_file aaindex_feature_H1N1 (or aaindex_feature_H3N2)
+    --aaindex_file aaindex_feature_H1N1.txt (or aaindex_feature_H3N2.txt)
     --seq_file /path/input_file
     --type training (or testing or predict)
     --dir /path/save_dir/
