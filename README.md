@@ -13,7 +13,7 @@ pandas==1.3.5<br>
 1 Please prepare the input file. It is required that input file has to at least contain 'seq1','seq2' and 'label' for training data and testing data or 'seq1'and 'seq2' for predict.<br>
     Example of the training data and testing data
 
-    label    seq_1    seq_2<br>
+    label    seq_1              seq_2<br>
     1	    QKLPGNDNST...	    QKLPGNDNSS...<br>
     0	    -KLPGNDNS...	    -KLPGNDNT...<br>
     1	    QKLPGIDNSN...	    QKLPGIDNSS...<br>
@@ -21,11 +21,11 @@ pandas==1.3.5<br>
 
 Example of the predict data
 
-seq_1	seq_2<br>
-QKLPGNDNST...	QKLPGNDNSS...<br>
--KLPGNDNS...	-KLPGNDNT...<br>
-QKLPGIDNSN...	QKLPGIDNSS...<br>
-QKLPGNDNTS...	QKLPGNDNSS...<br>
+    seq_1	        seq_2<br>
+    QKLPGNDNST...	QKLPGNDNSS...<br>
+    -KLPGNDNS...	-KLPGNDNT...<br>
+    QKLPGIDNSN...	QKLPGIDNSS...<br>
+    QKLPGNDNTS...	QKLPGNDNSS...<br>
 
 
 2 Run matrix_generate.py to generate the input matrix from the input file(train_data,test_data or predict_data):
@@ -56,11 +56,11 @@ python predict.py<br>
 
 Example of the predicted file
 
-seq_1	seq_2	predict<br>
-QKLPGNDNST...	QKLPGNDNSS...	0<br>
--KLPGNDNS...	-KLPGNDNT...	1<br>
-QKLPGIDNSN...	QKLPGIDNSS...	0<br>
-QKLPGNDNTS...	QKLPGNDNSS...	1<br>
+    seq_1	        seq_2	        predict<br>
+    QKLPGNDNST...	QKLPGNDNSS...	0<br>
+    -KLPGNDNS...	-KLPGNDNT...	1<br>
+    QKLPGIDNSN...	QKLPGIDNSS...	0<br>
+    QKLPGNDNTS...	QKLPGNDNSS...	1<br>
 
 
 
