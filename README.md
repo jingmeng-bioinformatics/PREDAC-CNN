@@ -46,7 +46,7 @@ Example of the input data for prediction:
     --outdir /path/model_dir/
     --type H1N1 (or H3N2)
 
-4 Run predict.py to the antigenic variants of the two sequences:
+4 Run predict.py to predict the antigenic variants of the two sequences:
 
     python predict.py
     --predict_data /path/save_dir/predict_data
