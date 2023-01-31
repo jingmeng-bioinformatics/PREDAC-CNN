@@ -1,6 +1,6 @@
 # PREDAV-CNN
 
-CNNantigentic is based on the CNN to predict the antigenic relationship of influenza A/H3N2 virus. CNNantigenic constructs a spatially oriented representation of the HA1 sequence adapted for the convolutional architecture, which can explore the interactions of the amino acids in the context sequence. Moreover, rather than the redundant amino acid embeddings, CNNantigenic takes into account only physicochemical features determining antigenicity of influenza A/H3N2 virus.Together, CNNantigenic can effectively extract the features in the context sequence from local to global views, and investigate the combinatorial contributions of point mutations in the HA protein to the antigenicity.
+PREDAV-CNN is based on the CNN to predict the antigenic relationship of seasonal influenza A viruses. PREDAV-CNN constructs a spatially oriented representation of the HA1 sequence adapted for the convolutional architecture, which can explore the interactions of the amino acid sites in the context sequence. Moreover, rather than the redundant amino acid embeddings, PREDAV-CNN takes into account only physicochemical features determining antigenicity of influenza viruses. Together, PREDAV-CNN can effectively capture the dependencies in the context sequence, and investigate the combinatorial contributions of point mutations in the HA protein to the antigenic variants.
 
 ## Prerequisites
 
@@ -10,7 +10,7 @@ CNNantigentic is based on the CNN to predict the antigenic relationship of influ
 
 
 ## Getting started
-1 Please prepare the input file. It is required that input file has to at least contain 'seq1','seq2' and 'label' for training data and testing data or 'seq1'and 'seq2' for predict.<br>
+1 Please prepare the input file. It is required that the input file contains 'seq1','seq2' and 'label' for training data and testing data or 'seq1'and 'seq2' for prediction.<br>
 
 Example of the training data and testing data:
 
@@ -20,7 +20,7 @@ Example of the training data and testing data:
     1        QKLPGIDNSN...    QKLPGIDNSS...
     0        QKLPGNDNTS...    QKLPGNDNSS...
 
-Example of the predict data:
+Example of the input data for prediction:
 
     seq_1	        seq_2
     QKLPGNDNST...	QKLPGNDNSS...
@@ -29,7 +29,7 @@ Example of the predict data:
     QKLPGNDNTS...	QKLPGNDNSS...
 
 
-2 Run matrix_generate.py to generate the input matrix from the input file(train_data,test_data or predict_data):
+2 Run matrix_generate.py to generate the input matrix from the input file (train_data,test_data or predict_data):
 
     python matrix_generate.py
     --aaindex_file aaindex_feature_H1N1.txt (or aaindex_feature_H3N2.txt)
@@ -46,7 +46,7 @@ Example of the predict data:
     --outdir /path/model_dir/
     --type H1N1 (or H3N2)
 
-4 Run predict.py to predict the relationship between the two sequence:
+4 Run predict.py to the antigenic variants of the two sequences:
 
     python predict.py
     --predict_data /path/save_dir/predict_data
@@ -55,7 +55,7 @@ Example of the predict data:
     --outdir /path/predict_dir/
     --type H1N1 (or H3N2)
 
-Example of the predicted file:
+Example of the output file:
 
     seq_1	        seq_2	        predict
     QKLPGNDNST...	QKLPGNDNSS...	0
