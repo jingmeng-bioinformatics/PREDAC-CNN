@@ -1,6 +1,6 @@
 # PREDAV-CNN
 
-PREDAV-CNN is based on the CNN to predict the antigenic relationship of seasonal influenza A viruses. PREDAV-CNN constructs a spatially oriented representation of the HA1 sequence adapted for the convolutional architecture, which can explore the interactions of the amino acid sites in the context sequence. Moreover, rather than the redundant amino acid embeddings, PREDAV-CNN takes into account only physicochemical features determining antigenicity of influenza viruses. Together, PREDAV-CNN can effectively capture the dependencies in the context sequence, and investigate the combinatorial contributions of point mutations in the HA protein to the antigenic variants.
+PREDAV-CNN is based on the CNN to predict the antigenic variants of seasonal influenza A viruses. PREDAV-CNN constructs a spatially oriented representation of the HA1 sequence adapted for the convolutional architecture, which can explore the interactions of the amino acid sites in the context sequence. Moreover, rather than the redundant amino acid embeddings, PREDAV-CNN takes into account only physicochemical features determining antigenicity of influenza viruses. Together, PREDAV-CNN can effectively capture the dependencies in the context sequence, and investigate the combinatorial contributions of point mutations in the HA protein to the antigenic variants.
 
 ## Prerequisites
 
