@@ -1,5 +1,5 @@
 import numpy as np
-import pandas
+import pandas as pd
 import argparse
 from model import *
 import os
