@@ -97,6 +97,6 @@ new_dict['TP']=TP_all
 
 
 
-pandas.DataFrame(new_dict).to_csv(outdir_0 + '/log.csv')
+pd.DataFrame(new_dict).to_csv(outdir_0 + '/log.csv')
 
 
