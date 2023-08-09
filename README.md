@@ -59,7 +59,7 @@ Example of the output file:
 
 ![image](https://github.com/jingmeng-bioinformatics/PREDAC-CNN/assets/35085665/29ecd1b6-3c93-492e-8503-cd357c8706b8)
 
-5 Run mcl_cluster.py to predict the antigenic variants of the two sequences:
+5 Run mcl_cluster.py to classify viruses into antigenic clusters based on the prediction of antigenic variants:
 
     python3 mcl_cluster.py
     --file /path/predict_dir/predict_data
