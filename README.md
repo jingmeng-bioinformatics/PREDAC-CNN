@@ -10,23 +10,23 @@ PREDAC-CNN is based on the CNN to predict the antigenic variants of seasonal inf
 
 
 ## Getting started
-1 Please prepare the input file. It is required that the input file contains 'seq1','seq2' and 'label' for training data and testing data or 'seq1'and 'seq2' for prediction.<br>
+1 Please prepare the input file. It is required that the input file contains 'name1','name2','seq1','seq2','year1','year2' and 'label' for training data and testing data or 'name1','name2','seq1','seq2','year1','year2' for prediction.<br>
 
 Example of the training data and testing data:
 
-    label    seq_1            seq_2
-    1        QKLPGNDNST...    QKLPGNDNSS...
-    0        -KLPGNDNSS...    -KLPGNDNT...
-    1        QKLPGIDNSN...    QKLPGIDNSS...
-    0        QKLPGNDNTS...    QKLPGNDNSS...
+
+
+![image](https://github.com/jingmeng-bioinformatics/PREDAC-CNN/assets/35085665/ce68d776-0876-4ad0-8866-2d50954b941c)
+
+
 
 Example of the input data for prediction:
 
-    seq_1	        seq_2
-    QKLPGNDNST...	QKLPGNDNSS...
-    -KLPGNDNS...	-KLPGNDNT...
-    QKLPGIDNSN...	QKLPGIDNSS...
-    QKLPGNDNTS...	QKLPGNDNSS...
+
+
+![image](https://github.com/jingmeng-bioinformatics/PREDAC-CNN/assets/35085665/42abde09-d86e-4cb9-8840-592327329e33)
+
+
 
 
 2 Run matrix_generate.py to generate the input matrix from the input file (train_data,test_data or predict_data):
@@ -57,11 +57,15 @@ Example of the input data for prediction:
 
 Example of the output file:
 
-    seq_1	        seq_2	        predict
-    QKLPGNDNST...	QKLPGNDNSS...	0
-    -KLPGNDNS...	-KLPGNDNT...	1
-    QKLPGIDNSN...	QKLPGIDNSS...	0
-    QKLPGNDNTS...	QKLPGNDNSS...	1
+![image](https://github.com/jingmeng-bioinformatics/PREDAC-CNN/assets/35085665/29ecd1b6-3c93-492e-8503-cd357c8706b8)
+
+5 Run mcl_cluster.py to predict the antigenic variants of the two sequences:
+
+    python3 mcl_cluster.py
+    --file /path/predict_dir/predict_data
+    --dir /path/save_dir/
+    --type H1N1 (or H3N2)
+
 
 
 
