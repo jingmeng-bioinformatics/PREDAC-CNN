@@ -9,8 +9,8 @@ import argparse
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--file', required=True, metavar='file')
-parser.add_argument('--dir', required=True, metavar='file')
+parser.add_argument('--input_file', required=True, metavar='file')
+parser.add_argument('--outdir', required=True, metavar='file')
 parser.add_argument('--type', required=True, metavar='file')
 args = parser.parse_args()
 
@@ -20,7 +20,7 @@ elif args.type=='H3N2':
     inflation =1.40
 
 
-a=pd.read_table(args.file,sep=',')
+a=pd.read_table(args.input_file,sep=',')
 a=a[a['predict']==0]
 #print(a)
 assert len(a)!=0,"There are no antigenic similar pairs!"
@@ -36,4 +36,4 @@ for j in range(len(clusters)):
     for k in clusters[j]:
         a_node.loc[k,'inflation_'+str(inflation)]=j
 
-a_node.to_csv(args.dir+'/'+args.type+'_'+str(inflation)+'_MCL_clusters.txt',sep='\t')
+a_node.to_csv(args.outdir+'/'+args.type+'_'+str(inflation)+'_MCL_clusters.txt',sep='\t')
