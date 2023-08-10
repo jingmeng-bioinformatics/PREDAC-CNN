@@ -62,8 +62,8 @@ Example of the output file:
 5 Run mcl_cluster.py to classify viruses into antigenic clusters based on the prediction of antigenic variants:
 
     python3 mcl_cluster.py
-    --file /path/predict_dir/predict_data
-    --dir /path/save_dir/
+    --input_file /path/predict_dir/predict_antigenic_variants
+    --outdir /path/save_dir/
     --type H1N1 (or H3N2)
 
 
