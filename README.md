@@ -7,6 +7,10 @@ PREDAC-CNN is based on the CNN to predict the antigenic variants of seasonal inf
     tensorflow==2.4.0
     python==3.7
     pandas==1.3.5
+    Levenshtein==0.21.1
+    markov_clustering==0.0.6.dev0
+    networkx==2.6.3
+    matplotlib==3.5.3
 
 
 ## Getting started
